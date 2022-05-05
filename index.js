@@ -16,8 +16,8 @@ http
       response.write(404,{
         "Context-Type": "text/html",
       });
-           console.log("404 Page has been visited");
-      response.write("<p>404 Page Not found!</p>");
+          // console.log("404 Page has been visited");
+      response.write("<p>About Page!</p>");
       response.end();
       break;
   })
