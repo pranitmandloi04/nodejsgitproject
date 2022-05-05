@@ -1,9 +1,23 @@
-const http = require("http");
+ const http = require("http");
 
 http
   .createServer((req, res) => {
-      res.write("<h1>Home Page</h1>");
-      console.log(res);
-      res.end();
+    switch(http.request.url)
+    {
+      case"/":
+      response.writeHead(200,{
+        "Context-Type": "text/html",
+      });
+    
+      response.write("<h1>Home Page!</h1>");
+      response.end();
+      break;
+    default:
+      response.write(404,{
+        "Context-Type": "text/html",
+      });
+      response.write("<p>404 Page Not found!</p>");
+      response.end();
+      break;
   })
-  .listen(8080);
+  .listen(8080);;
