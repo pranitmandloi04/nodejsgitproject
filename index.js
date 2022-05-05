@@ -2,22 +2,30 @@
 
 http
   .createServer((req, res) => {
-    switch(http.request.url)
+    switch(request.url)
     {
       case"/":
       response.writeHead(200,{
         "Context-Type": "text/html",
       });
-    
-      response.write("<h1>Home Page!</h1>");
+      response.write("<p>Home Page!</p>");
       response.end();
       break;
-    default:
+
+      case"/about":
+      response.writeHead(200,{
+        "Context-Type": "text/html",
+      });
+      response.write("<p>About Page!</p>");
+      response.end();
+      break; 
+    
+      default:
       response.write(404,{
         "Context-Type": "text/html",
       });
-          // console.log("404 Page has been visited");
-      response.write("<p>About Page!</p>");
+      console.log("404 Page has been visited");
+      response.write("<p>404 Page not found!</p>");
       response.end();
       break;
   })
